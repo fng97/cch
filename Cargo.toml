@@ -1,7 +1,15 @@
 [package]
 name = "fng-cch"
 version = "0.1.0"
+authors = ["Francisco Nevitt Gonçalves <github.com/fng97>"]
 edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "fng-cch"
 
 [dependencies]
 actix-web = "4.3.1"
