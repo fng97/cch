@@ -1,9 +1,9 @@
 use actix_web::web::ServiceConfig;
 use shuttle_actix_web::ShuttleActixWeb;
 
-use fng_cch::run;
+use cch::config;
 
 #[shuttle_runtime::main]
 async fn main() -> ShuttleActixWeb<impl FnOnce(&mut ServiceConfig) + Send + Clone + 'static> {
-    run().await
+    Ok(config.into())
 }

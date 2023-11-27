@@ -441,6 +441,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "cch"
+version = "0.1.0"
+dependencies = [
+ "actix-web",
+ "shuttle-actix-web",
+ "shuttle-runtime",
+ "tokio",
+]
+
+[[package]]
 name = "cfg-if"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -676,16 +686,6 @@ checksum = "46303f565772937ffe1d394a4fac6f411c6013172fadde9dcdb1e147a086940e"
 dependencies = [
  "crc32fast",
  "miniz_oxide",
-]
-
-[[package]]
-name = "fng-cch"
-version = "0.1.0"
-dependencies = [
- "actix-web",
- "shuttle-actix-web",
- "shuttle-runtime",
- "tokio",
 ]
 
 [[package]]
