@@ -4,3 +4,8 @@ use actix_web::{get, HttpResponse, Responder};
 async fn health_check() -> impl Responder {
     HttpResponse::Ok()
 }
+
+#[get("/")]
+async fn root() -> impl Responder {
+    HttpResponse::Ok().body("Hello, world!")
+}
