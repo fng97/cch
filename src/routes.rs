@@ -9,3 +9,8 @@ async fn health_check() -> impl Responder {
 async fn root() -> impl Responder {
     HttpResponse::Ok().body("Hello, world!")
 }
+
+#[get("/-1/error")]
+async fn fake_error() -> impl Responder {
+    HttpResponse::InternalServerError().finish()
+}
