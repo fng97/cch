@@ -15,7 +15,10 @@
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	"features": {
 		"ghcr.io/lee-orr/rusty-dev-containers/cargo-binstall:0": {
-			"packages": "cargo-shuttle@0.34.1"
+			"packages": [
+				"cargo-shuttle@0.34.1",
+				"cargo-tarpaulin@0.27.2"
+			]
 		}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
