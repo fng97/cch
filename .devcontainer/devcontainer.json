@@ -30,7 +30,12 @@
 		"vscode": {
 			"settings": {
 				"editor.formatOnSave": true // enforce rustfmt
-			}
+			},
+			"extensions": [
+				"GitHub.copilot",
+				"yzhang.markdown-all-in-one",
+				"DavidAnson.vscode-markdownlint"
+			]
 		}
 	},
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
