@@ -1,2 +1,2 @@
-pub mod routes;
+pub mod challenges;
 pub mod startup;
