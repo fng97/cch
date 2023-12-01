@@ -1,4 +1,3 @@
-mod fake_error;
-mod health_check;
+mod day1;
 mod helpers;
-mod root;
+mod warmup;

@@ -1,9 +1,10 @@
 use actix_web::web::ServiceConfig;
 
-use crate::routes::fake_error;
-use crate::routes::health_check;
-use crate::routes::root;
+use crate::challenges::day1;
+use crate::challenges::warmup;
 
 pub fn config(cfg: &mut ServiceConfig) {
-    cfg.service(root).service(health_check).service(fake_error);
+    cfg.service(warmup::root)
+        .service(warmup::fake_error)
+        .service(day1::cube_xor_of_path_params);
 }
