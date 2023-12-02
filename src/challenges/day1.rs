@@ -17,7 +17,7 @@ async fn cube_xor_of_path_params(path: web::Path<String>) -> Either<HttpResponse
     let mut result = 0;
 
     for number in params {
-        match number.parse::<u32>() {
+        match number.parse::<i32>() {
             Ok(n) => result = result.bitxor(n),
             Err(_) => return Either::Left(HttpResponse::BadRequest().body("Bad Request")),
         }
