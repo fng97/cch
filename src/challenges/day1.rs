@@ -25,13 +25,7 @@ fn extract_path_params(path: &str) -> Result<Vec<i32>, ParseIntError> {
 }
 
 fn recallibrate(ids: Vec<i32>) -> i32 {
-    let mut result = 0;
-
-    for id in ids {
-        result = result.bitxor(id);
-    }
-
-    result.pow(3)
+    ids.iter().fold(0, |acc, id| acc.bitxor(id)).pow(3)
 }
 
 // just checking I've understood the bitxor trait
