@@ -7,5 +7,5 @@ async fn root() -> impl Responder {
 
 #[get("/-1/error")]
 async fn fake_error() -> impl Responder {
-    HttpResponse::InternalServerError().finish()
+    HttpResponse::InternalServerError()
 }
