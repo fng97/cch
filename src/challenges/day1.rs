@@ -5,6 +5,10 @@ use std::num::ParseIntError;
 use std::ops::BitXor;
 use std::str::FromStr;
 
+// NOTE: The boilerplate required for type-based validation is probably not
+// justified, but I want to proceed as if the domain types might be used
+// elsewhere.
+
 enum PathParamsError {
     ParseError(ParseIntError),
     TooManyIds,
