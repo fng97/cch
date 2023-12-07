@@ -34,6 +34,12 @@ async fn get_1_cubes_xored_path_params() {
         ("10", 200, "1000"),      // GET /1/10 returns 10
         ("4/5/8/10", 200, "27"),  // GET /1/4/5/8/10 returns 27
         ("", 400, "Bad Request"), // no path params
+        (
+            "1/2/3/4/5/6/7/8/9/10/11/12/13/14/15/16/17/18/19/20/21",
+            400,
+            "Bad Request",
+        ), // too many path params
+        ("4/-8", 200, "-64"),     // support negative numbers
     ];
 
     for (input, expected_status, expected_body) in test_cases {

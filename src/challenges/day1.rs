@@ -1,25 +1,44 @@
+use actix_web::get;
+use actix_web::{Error, FromRequest, HttpRequest};
+use futures_util::future::{ready, Ready};
+use std::num::ParseIntError;
 use std::ops::BitXor;
 
-use actix_web::{get, web, Either, HttpResponse, Result};
+struct PathParams {
+    ids: Vec<i32>,
+}
 
-// TODO: Find a better way of validating the input, regex or type?
-#[get("/1/{params:.*}")] // match all path params
-async fn cube_xor_of_path_params(path: web::Path<String>) -> Either<HttpResponse, Result<String>> {
-    let params = path.into_inner();
-    let params = params.split('/').collect::<Vec<&str>>();
+impl FromRequest for PathParams {
+    type Error = Error;
+    type Future = Ready<Result<Self, Error>>;
 
-    let mut result = 0;
+    fn from_request(req: &HttpRequest, _: &mut actix_web::dev::Payload) -> Self::Future {
+        let path = req.match_info().query("ids");
 
-    for number in params {
-        match number.parse::<i128>() {
-            Ok(n) => result = result.bitxor(n),
-            Err(_) => return Either::Left(HttpResponse::BadRequest().body("Bad Request")),
+        let ids = match path
+            .split('/')
+            .map(|num_str| num_str.parse::<i32>())
+            .collect::<Result<Vec<i32>, ParseIntError>>()
+        {
+            Ok(ids) => ids,
+            Err(_) => return ready(Err(actix_web::error::ErrorBadRequest("Bad Request"))),
+        };
+
+        if ids.len() > 20 {
+            return ready(Err(actix_web::error::ErrorBadRequest("Bad Request")));
         }
+
+        ready(Ok(PathParams { ids }))
     }
+}
 
-    let cubed = result.pow(3);
+#[get("/1/{ids:.*}")] // match all
+async fn cube_xor_of_path_params(params: PathParams) -> String {
+    recallibrate(params.ids).to_string()
+}
 
-    Either::Right(Ok(cubed.to_string()))
+fn recallibrate(ids: Vec<i32>) -> i32 {
+    ids.iter().fold(0, |acc, id| acc.bitxor(id)).pow(3)
 }
 
 // just checking I've understood the bitxor trait
