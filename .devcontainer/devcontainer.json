@@ -16,7 +16,7 @@
 	"features": {
 		"ghcr.io/lee-orr/rusty-dev-containers/cargo-binstall:0": {
 			"packages": [
-				"cargo-shuttle@0.34.1",
+				"cargo-shuttle@0.35.0",
 				"cargo-tarpaulin@0.27.2",
 				"cargo-expand@1.0.74"
 			]
