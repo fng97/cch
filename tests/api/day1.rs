@@ -1,7 +1,5 @@
 use crate::helpers::spawn_app;
 
-const DAY: u8 = 1;
-
 #[tokio::test]
 async fn cubes_xored_path_params() {
     // Arrange
@@ -26,7 +24,7 @@ async fn cubes_xored_path_params() {
         // Act
         let response = client
             // from example: xor(4, 8)^3 = 1728
-            .get(format!("{app_address}/{DAY}/{input}"))
+            .get(format!("{app_address}/1/{input}"))
             .send()
             .await
             .expect("Failed to execute request.");
