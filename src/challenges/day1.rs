@@ -4,11 +4,9 @@ use futures_util::future::{ready, Ready};
 use std::num::ParseIntError;
 use std::ops::BitXor;
 
-struct PathParams {
-    ids: Vec<i32>,
-}
+struct Ids(Vec<i32>);
 
-impl FromRequest for PathParams {
+impl FromRequest for Ids {
     type Error = Error;
     type Future = Ready<Result<Self, Error>>;
 
@@ -28,13 +26,13 @@ impl FromRequest for PathParams {
             return ready(Err(actix_web::error::ErrorBadRequest("Bad Request")));
         }
 
-        ready(Ok(PathParams { ids }))
+        ready(Ok(Ids(ids)))
     }
 }
 
 #[get("/1/{ids:.*}")] // match all
-async fn cube_xor_of_path_params(params: PathParams) -> String {
-    recallibrate(params.ids).to_string()
+async fn cube_xor_of_path_params(ids: Ids) -> String {
+    recallibrate(ids.0).to_string()
 }
 
 fn recallibrate(ids: Vec<i32>) -> i32 {
