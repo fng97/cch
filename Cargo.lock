@@ -447,6 +447,7 @@ dependencies = [
  "actix-web",
  "futures-util",
  "reqwest",
+ "serde",
  "shuttle-actix-web",
  "shuttle-runtime",
  "tokio",
