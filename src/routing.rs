@@ -8,5 +8,6 @@ pub fn config(cfg: &mut ServiceConfig) {
     cfg.service(warmup::root)
         .service(warmup::fake_error)
         .service(day1::cube_xor_of_path_params)
-        .service(day4::combined_reindeer_strengths);
+        .service(day4::combine_reindeer_strengths)
+        .service(day4::summarise_winners);
 }
