@@ -442,7 +442,7 @@ dependencies = [
 
 [[package]]
 name = "cch"
-version = "2023.12.7-1"
+version = "2023.12.9-1"
 dependencies = [
  "actix-web",
  "futures-util",
