@@ -11,5 +11,5 @@ pub fn config(cfg: &mut ServiceConfig) {
         .service(day1::recallibrate_ids)
         .service(day4::combine_reindeer_strengths)
         .service(day4::summarise_winners)
-        .service(day6::count_elf_sub_strings);
+        .service(day6::count_elves_and_shelves);
 }
