@@ -30,3 +30,40 @@ async fn counts_elf_sub_strings() {
 
     assert_eq!(expected_body, actual_body);
 }
+
+// Task 2
+#[tokio::test]
+async fn counts_elves_and_shelves() {
+    // Arrange
+    let app_address = spawn_app();
+    let client = Client::new();
+
+    // Act
+    let response = client
+        .post(format!("{app_address}/6"))
+        .header(header::CONTENT_TYPE, "text/plain")
+        .body(
+            "there is an elf on a shelf on an elf.
+            there is also another shelf in Belfast.",
+        )
+        .send()
+        .await
+        .expect("Failed to execute request.");
+
+    // Assert
+    assert_eq!(200, response.status().as_u16());
+
+    let expected_body: Value = from_str(
+        r#"
+        {
+            "elf": 5,
+            "elf on a shelf": 1,
+            "shelf with no elf on it": 1
+        }
+        "#,
+    )
+    .unwrap();
+    let actual_body: Value = from_str(&response.text().await.unwrap()).unwrap();
+
+    assert_eq!(expected_body, actual_body);
+}
