@@ -30,6 +30,7 @@
 	"customizations": {
 		"vscode": {
 			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh",
 				"editor.formatOnSave": true // enforce rustfmt
 			},
 			"extensions": [
