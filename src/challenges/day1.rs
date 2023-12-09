@@ -31,11 +31,11 @@ impl FromRequest for Ids {
 }
 
 #[get("/1/{ids:.*}")] // match all
-async fn cube_xor_of_path_params(ids: Ids) -> String {
-    recallibrate(ids.0).to_string()
+async fn recallibrate_ids(ids: Ids) -> String {
+    cube_xor_of_ids(ids.0).to_string()
 }
 
-fn recallibrate(ids: Vec<i32>) -> i32 {
+fn cube_xor_of_ids(ids: Vec<i32>) -> i32 {
     ids.iter().fold(0, |acc, id| acc.bitxor(id)).pow(3)
 }
 
