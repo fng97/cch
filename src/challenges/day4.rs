@@ -9,7 +9,6 @@ struct ReindeerStats {
 #[post("/4/strength")]
 async fn combine_reindeer_strengths(reindeers: web::Json<Vec<ReindeerStats>>) -> String {
     reindeers
-        .0
         .iter()
         .fold(0, |acc, r| acc + r.strength)
         .to_string()
