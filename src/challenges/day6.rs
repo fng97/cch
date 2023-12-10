@@ -15,6 +15,7 @@ struct ResponseWithShelves {
     shelf_with_no_elf_on_it: u32,
 }
 
+#[tracing::instrument(name = "Counting occurances of 'elf', 'elf on a shelf' and 'shelf'")]
 #[post("/6")]
 async fn count_elves_and_shelves(
     body: String,

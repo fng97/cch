@@ -3,13 +3,20 @@ use actix_web::{Error, FromRequest, HttpRequest};
 use futures_util::future::{ready, Ready};
 use std::num::ParseIntError;
 use std::ops::BitXor;
+use tracing::info;
 
 struct Ids(Vec<i32>);
+
+const MAX_IDS: usize = 20;
 
 impl FromRequest for Ids {
     type Error = Error;
     type Future = Ready<Result<Self, Error>>;
 
+    #[tracing::instrument(name = "Parsing IDs from path", skip(req),
+        fields(
+            request.path = %req.path()
+        ))]
     fn from_request(req: &HttpRequest, _: &mut actix_web::dev::Payload) -> Self::Future {
         let path = req.match_info().query("ids");
 
@@ -19,10 +26,14 @@ impl FromRequest for Ids {
             .collect::<Result<Vec<i32>, ParseIntError>>()
         {
             Ok(ids) => ids,
-            Err(_) => return ready(Err(actix_web::error::ErrorBadRequest("Bad Request"))),
+            Err(e) => {
+                info!("Failed to parse an ID from the path: {:?}", e);
+                return ready(Err(actix_web::error::ErrorBadRequest("Bad Request")));
+            }
         };
 
-        if ids.len() > 20 {
+        if ids.len() > MAX_IDS {
+            info!("Too many IDs in the path. Max is {}", MAX_IDS);
             return ready(Err(actix_web::error::ErrorBadRequest("Bad Request")));
         }
 
@@ -30,6 +41,7 @@ impl FromRequest for Ids {
     }
 }
 
+#[tracing::instrument(name = "Recallibrating IDs", skip(ids))]
 #[get("/1/{ids:.*}")] // match all
 async fn recallibrate_ids(ids: Ids) -> String {
     cube_xor_of_ids(ids.0).to_string()

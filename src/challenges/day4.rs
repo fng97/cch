@@ -6,8 +6,16 @@ struct ReindeerStats {
     strength: u32,
 }
 
+#[tracing::instrument(
+    name = "Combining reindeer strengths",
+    skip(reindeers),
+    fields(body = %_body)
+)]
 #[post("/4/strength")]
-async fn combine_reindeer_strengths(reindeers: web::Json<Vec<ReindeerStats>>) -> String {
+async fn combine_reindeer_strengths(
+    reindeers: web::Json<Vec<ReindeerStats>>,
+    _body: String,
+) -> String {
     reindeers
         .iter()
         .fold(0, |acc, r| acc + r.strength)
@@ -35,8 +43,16 @@ struct Winners {
     consumer: String,
 }
 
+#[tracing::instrument(
+    name = "Summarising reindeer stats",
+    skip(reindeers),
+    fields(body = %_body)
+)]
 #[post("/4/contest")]
-async fn summarise_winners(reindeers: web::Json<Vec<ReindeerStatsFull>>) -> web::Json<Winners> {
+async fn summarise_winners(
+    reindeers: web::Json<Vec<ReindeerStatsFull>>,
+    _body: String,
+) -> web::Json<Winners> {
     let loser: ReindeerStatsFull = ReindeerStatsFull {
         name: "Loser".to_string(),
         strength: 0,
