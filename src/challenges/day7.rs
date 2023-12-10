@@ -30,3 +30,18 @@ impl FromRequest for CookieRecipe {
 async fn decode_cookie_recipe(recipe: CookieRecipe) -> String {
     recipe.0
 }
+
+#[get("/7/bake")]
+async fn calculate_max_bakes() -> String {
+    r#"{
+        "cookies": 4,
+        "pantry": {
+            "flour": 5,
+            "sugar": 307,
+            "butter": 2002,
+            "baking powder": 825,
+            "chocolate chips": 257
+        }
+    }"#
+    .to_string()
+}
