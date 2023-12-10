@@ -5,7 +5,7 @@ use serde_json::{from_str, Value};
 #[tokio::test]
 async fn sums_reindeer_strengths() {
     // Arrange
-    let app_address = spawn_app();
+    let app_address = spawn_app().await;
     let client = reqwest::Client::new();
 
     // Act
@@ -35,7 +35,7 @@ async fn sums_reindeer_strengths() {
 #[tokio::test]
 async fn summarises_winners() {
     // Arrange
-    let app_address = spawn_app();
+    let app_address = spawn_app().await;
     let client = reqwest::Client::new();
 
     // Act

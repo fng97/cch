@@ -4,7 +4,7 @@ use crate::helpers::spawn_app;
 #[tokio::test]
 async fn root_responds_with_hello_world() {
     // Arrange
-    let app_address = spawn_app();
+    let app_address = spawn_app().await;
     let client = reqwest::Client::new();
 
     // Act
@@ -23,7 +23,7 @@ async fn root_responds_with_hello_world() {
 #[tokio::test]
 async fn fake_error_returns_500() {
     // Arrange
-    let app_address = spawn_app();
+    let app_address = spawn_app().await;
     let client = reqwest::Client::new();
 
     // Act

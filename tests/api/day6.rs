@@ -6,7 +6,7 @@ use serde_json::{from_str, Value};
 #[tokio::test]
 async fn counts_elf_sub_strings() {
     // Arrange
-    let app_address = spawn_app();
+    let app_address = spawn_app().await;
     let client = Client::new();
 
     // Act
@@ -35,7 +35,7 @@ async fn counts_elf_sub_strings() {
 #[tokio::test]
 async fn counts_elves_and_shelves() {
     // Arrange
-    let app_address = spawn_app();
+    let app_address = spawn_app().await;
     let client = Client::new();
 
     // Act

@@ -3,7 +3,7 @@ use crate::helpers::spawn_app;
 #[tokio::test]
 async fn cubes_xored_path_params() {
     // Arrange
-    let app_address = spawn_app();
+    let app_address = spawn_app().await;
     let client = reqwest::Client::new();
 
     // example inputs
