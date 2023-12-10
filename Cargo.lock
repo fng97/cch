@@ -446,6 +446,7 @@ version = "2023.12.9-2"
 dependencies = [
  "actix-web",
  "futures-util",
+ "once_cell",
  "reqwest",
  "serde",
  "serde_json",
@@ -473,6 +474,16 @@ dependencies = [
  "num-traits",
  "serde",
  "windows-targets",
+]
+
+[[package]]
+name = "colored"
+version = "2.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cbf2150cce219b664a8a70df7a1f933836724b503f8a413af9365b4dcc4d90b8"
+dependencies = [
+ "lazy_static",
+ "windows-sys",
 ]
 
 [[package]]
@@ -2054,6 +2065,7 @@ dependencies = [
  "anyhow",
  "async-trait",
  "chrono",
+ "colored",
  "prost-types",
  "serde",
  "serde_json",
@@ -2067,6 +2079,7 @@ dependencies = [
  "tokio-stream",
  "tonic 0.10.2",
  "tower",
+ "tracing-subscriber",
 ]
 
 [[package]]
