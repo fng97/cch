@@ -445,6 +445,7 @@ name = "cch"
 version = "2023.12.9-2"
 dependencies = [
  "actix-web",
+ "base64",
  "futures-util",
  "reqwest",
  "serde",

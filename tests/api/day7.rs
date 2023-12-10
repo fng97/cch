@@ -3,7 +3,7 @@ use reqwest::Client;
 
 // Task 1
 #[tokio::test]
-async fn base64_decodes_recipe() {
+async fn base64_decodes_recipe_from_cookie() {
     // Arrange
     let app_address = spawn_app();
     let client = Client::new();

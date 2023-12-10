@@ -13,5 +13,5 @@ pub fn config(cfg: &mut ServiceConfig) {
         .service(day4::combine_reindeer_strengths)
         .service(day4::summarise_winners)
         .service(day6::count_elves_and_shelves)
-        .service(day7::decode_recipe);
+        .service(day7::decode_cookie_recipe);
 }
