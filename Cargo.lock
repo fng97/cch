@@ -442,11 +442,13 @@ dependencies = [
 
 [[package]]
 name = "cch"
-version = "2023.12.7-1"
+version = "2023.12.9-2"
 dependencies = [
  "actix-web",
  "futures-util",
  "reqwest",
+ "serde",
+ "serde_json",
  "shuttle-actix-web",
  "shuttle-runtime",
  "tokio",

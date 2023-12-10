@@ -30,12 +30,14 @@
 	"customizations": {
 		"vscode": {
 			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh",
 				"editor.formatOnSave": true // enforce rustfmt
 			},
 			"extensions": [
 				"GitHub.copilot",
 				"yzhang.markdown-all-in-one",
-				"DavidAnson.vscode-markdownlint"
+				"DavidAnson.vscode-markdownlint",
+				"redhat.vscode-yaml"
 			]
 		}
 	},

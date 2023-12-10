@@ -1,7 +1,7 @@
 use actix_web::{App, HttpServer};
 use std::net::TcpListener;
 
-use cch::startup::config;
+use cch::routing::config;
 
 pub fn spawn_app() -> String {
     let listener = TcpListener::bind("127.0.0.1:0").expect("Failed to bind random port");
