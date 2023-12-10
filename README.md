@@ -2,6 +2,9 @@
 
 My solutions to [`shuttle`'s Christmas Code Hunt](https://www.shuttle.rs/cch)!
 
+I've copied the challenge prompts alongside the tests for reference.
+[Here's](tests/api/warmup.md) the warmup.
+
 What I'm using:
 
 - 🦀 [Rust](https://www.rust-lang.org) for *fun* ✨
