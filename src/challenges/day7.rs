@@ -7,6 +7,7 @@ use serde_json::from_str;
 // TODO: Complete task 3
 // TODO: Fix task 2
 // TODO: Move type fluff to domain for all challenges?
+// TODO: Bad coverage. Add more tests.
 
 struct CookieRecipe(String);
 
