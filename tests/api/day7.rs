@@ -18,7 +18,7 @@ async fn base64_decodes_recipe_from_cookie() {
         )
         .send()
         .await
-        .expect("Failed to execute request.");
+        .expect("Failed to execute request");
 
     // Assert
     assert_eq!(200, response.status().as_u16());
@@ -44,7 +44,7 @@ async fn counts_possible_bakes() {
         )
         .send()
         .await
-        .expect("Failed to execute request.");
+        .expect("Failed to execute request");
 
     // Assert
     assert_eq!(200, response.status().as_u16());

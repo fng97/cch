@@ -8,7 +8,7 @@ pub fn spawn_app() -> String {
     let port = listener.local_addr().unwrap().port();
     let server = HttpServer::new(|| App::new().configure(config))
         .listen(listener)
-        .expect("Failed to bind TCP listener.")
+        .expect("Failed to bind TCP listener")
         .run();
 
     tokio::spawn(server);

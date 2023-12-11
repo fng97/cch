@@ -20,7 +20,7 @@ async fn counts_elf_sub_strings() {
         )
         .send()
         .await
-        .expect("Failed to execute request.");
+        .expect("Failed to execute request");
 
     // Assert
     assert_eq!(200, response.status().as_u16());
@@ -48,7 +48,7 @@ async fn counts_elves_and_shelves() {
         )
         .send()
         .await
-        .expect("Failed to execute request.");
+        .expect("Failed to execute request");
 
     // Assert
     assert_eq!(200, response.status().as_u16());
