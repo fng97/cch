@@ -1,6 +1,6 @@
 [package]
 name = "cch"
-version = "2023.12.9-2"
+version = "2023.12.11-1"
 authors = ["Francisco Nevitt Gonçalves <github.com/fng97>"]
 edition = "2021"
 
