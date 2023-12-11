@@ -4,6 +4,9 @@ use futures_util::future::{ready, Ready};
 use serde::{Deserialize, Serialize};
 use serde_json::from_str;
 
+// TODO: Complete task 3
+// TODO: Move type fluff to domain for all challenges?
+
 struct CookieRecipe(String);
 
 impl FromRequest for CookieRecipe {
@@ -110,6 +113,7 @@ async fn calculate_max_bakes(
     })
 }
 
+// TODO: Make method of RecipeAndPantry
 fn max_bakes_for_recipe(recipe: &Ingredients, pantry: &Ingredients) -> u32 {
     [
         max_bakes_for_ingredient(recipe.flour, pantry.flour),
