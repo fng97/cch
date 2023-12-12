@@ -2,8 +2,7 @@
 
 My solutions to [`shuttle`'s Christmas Code Hunt](https://www.shuttle.rs/cch)!
 
-I've copied the challenge prompts alongside the tests for reference.
-[Here's](tests/api/warmup.md) the warmup.
+I've copied across the challenge prompts for reference [here](docs/challenges/README.md).
 
 What I'm using:
 

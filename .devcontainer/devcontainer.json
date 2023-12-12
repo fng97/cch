@@ -31,6 +31,9 @@
 		"vscode": {
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "zsh",
+				"markdownlint.ignore": [
+					"MD003"
+				],
 				"editor.formatOnSave": true // enforce rustfmt
 			},
 			"extensions": [
