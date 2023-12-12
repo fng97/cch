@@ -24,7 +24,7 @@ async fn sums_reindeer_strengths() {
         )
         .send()
         .await
-        .expect("Failed to execute request.");
+        .expect("Failed to execute request");
 
     // Assert
     assert_eq!(200, response.status().as_u16());
@@ -70,7 +70,7 @@ async fn summarises_winners() {
         )
         .send()
         .await
-        .expect("Failed to execute request.");
+        .expect("Failed to execute request");
 
     // Assert
     assert_eq!(200, response.status().as_u16());

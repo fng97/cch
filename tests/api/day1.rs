@@ -27,7 +27,7 @@ async fn cubes_xored_path_params() {
             .get(format!("{app_address}/1/{input}"))
             .send()
             .await
-            .expect("Failed to execute request.");
+            .expect("Failed to execute request");
 
         // Assert
         assert_eq!(expected_status, response.status().as_u16());
