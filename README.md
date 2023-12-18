@@ -2,7 +2,7 @@
 
 My solutions to [`shuttle`'s Christmas Code Hunt](https://www.shuttle.rs/cch)!
 
-I've copied across the challenge prompts for reference [here](docs/challenges/README.md).
+I've copied across the challenge prompts for reference [here](docs/challenges).
 
 What I'm using:
 
