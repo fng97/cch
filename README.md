@@ -11,6 +11,3 @@ What I'm using:
 - 🚀 [Shuttle](https://www.shuttle.rs) for infrastructure
 - 🐳 [Dev Container](https://containers.dev) for development
 - 🪄 [GitHub Actions](https://github.com/features/actions) for CI/CD
-
-TODO: Add helper middleware for use with `cch23-validator` that captures all
-inputs and outputs and if the outputs were correct.
