@@ -1,10 +1,19 @@
 use actix_web::{get, web};
 use serde::Deserialize;
 
+// TODO: Add error handling
+// TODO: Mock requests in tests using wiremock
+
 #[derive(Deserialize)]
 struct Pokemon {
     #[serde(rename(deserialize = "weight"))]
-    weight_hectograms: u32,
+    weight_hectograms: f32,
+}
+
+impl Pokemon {
+    fn weight_kg(&self) -> f32 {
+        self.weight_hectograms / 10.
+    }
 }
 
 #[get("/8/weight/{pokedex}")]
@@ -24,7 +33,5 @@ async fn get_pokemon_weight(path: web::Path<u32>, client: web::Data<reqwest::Cli
 
     let pokemon: Pokemon = serde_json::from_str(&contents).unwrap();
 
-    let weight_kg: f32 = pokemon.weight_hectograms as f32 / 10.;
-
-    weight_kg.to_string()
+    pokemon.weight_kg().to_string()
 }
