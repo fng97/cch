@@ -1,5 +1,4 @@
 use actix_web::{get, web};
-use reqwest::Client;
 use serde::Deserialize;
 
 #[derive(Deserialize)]
@@ -9,9 +8,8 @@ struct Pokemon {
 }
 
 #[get("/8/weight/{pokedex}")]
-async fn get_pokemon_weight(path: web::Path<u32>) -> String {
+async fn get_pokemon_weight(path: web::Path<u32>, client: web::Data<reqwest::Client>) -> String {
     let pokedex = path.into_inner();
-    let client = Client::new();
 
     let response = client
         .get(format!("https://pokeapi.co/api/v2/pokemon/{pokedex}"))

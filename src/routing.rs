@@ -1,4 +1,4 @@
-use actix_web::web::ServiceConfig;
+use actix_web::web::{Data, ServiceConfig};
 
 use crate::challenges::day1;
 use crate::challenges::day4;
@@ -8,7 +8,8 @@ use crate::challenges::day8;
 use crate::challenges::warmup;
 
 pub fn config(cfg: &mut ServiceConfig) {
-    cfg.service(warmup::root)
+    cfg.app_data(Data::new(reqwest::Client::new()))
+        .service(warmup::root)
         .service(warmup::fake_error)
         .service(day1::recallibrate_ids)
         .service(day4::combine_reindeer_strengths)
