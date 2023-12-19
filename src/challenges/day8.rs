@@ -2,7 +2,8 @@ use actix_web::{get, web};
 use serde::Deserialize;
 
 // TODO: Add error handling
-// TODO: Mock requests in tests using wiremock
+// TODO: Mock requests in tests using wiremock. See
+// https://www.lpalmieri.com/posts/how-to-write-a-rest-client-in-rust-with-reqwest-and-wiremock/#how-to-test-a-rest-client
 
 #[derive(Deserialize)]
 struct Pokemon {

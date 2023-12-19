@@ -442,7 +442,7 @@ dependencies = [
 
 [[package]]
 name = "cch"
-version = "2023.12.11-1"
+version = "2023.12.19-1"
 dependencies = [
  "actix-web",
  "base64",
