@@ -1,6 +1,7 @@
 use actix_web::web::{Data, ServiceConfig};
 
 use crate::challenges::day1;
+use crate::challenges::day11;
 use crate::challenges::day4;
 use crate::challenges::day6;
 use crate::challenges::day7;
@@ -17,5 +18,6 @@ pub fn config(cfg: &mut ServiceConfig) {
         .service(day6::count_elves_and_shelves)
         .service(day7::decode_cookie_recipe)
         .service(day7::calculate_max_bakes)
-        .service(day8::get_pokemon_weight);
+        .service(day8::get_pokemon_weight)
+        .service(day11::baubles_asset);
 }
