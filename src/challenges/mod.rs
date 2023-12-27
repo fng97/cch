@@ -1,7 +1,7 @@
-pub mod day1;
-pub mod day11;
-pub mod day4;
-pub mod day6;
-pub mod day7;
-pub mod day8;
+pub mod day_01;
+pub mod day_04;
+pub mod day_06;
+pub mod day_07;
+pub mod day_08;
+pub mod day_11;
 pub mod warmup;
