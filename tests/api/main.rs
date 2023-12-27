@@ -1,8 +1,8 @@
-mod day1;
-mod day11;
-mod day4;
-mod day6;
-mod day7;
-mod day8;
+mod day_01;
+mod day_04;
+mod day_06;
+mod day_07;
+mod day_08;
+mod day_11;
 mod helpers;
 mod warmup;
