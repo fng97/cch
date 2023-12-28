@@ -471,7 +471,7 @@ dependencies = [
 
 [[package]]
 name = "cch"
-version = "2023.12.19-1"
+version = "2023.12.28-1"
 dependencies = [
  "actix-files",
  "actix-web",

@@ -4,5 +4,6 @@ mod day_06;
 mod day_07;
 mod day_08;
 mod day_11;
+mod day_12;
 mod helpers;
 mod warmup;
