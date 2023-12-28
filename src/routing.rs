@@ -6,6 +6,7 @@ use crate::challenges::day_06;
 use crate::challenges::day_07;
 use crate::challenges::day_08;
 use crate::challenges::day_11;
+use crate::challenges::day_12;
 use crate::challenges::warmup;
 
 pub fn config(cfg: &mut ServiceConfig) {
@@ -19,5 +20,7 @@ pub fn config(cfg: &mut ServiceConfig) {
         .service(day_07::decode_cookie_recipe)
         .service(day_07::calculate_max_bakes)
         .service(day_08::get_pokemon_weight)
-        .service(day_11::baubles_asset);
+        .service(day_11::baubles_asset)
+        .service(day_12::save_packet_id_with_timestamp)
+        .service(day_12::time_elapsed_since_packet_id_saved);
 }
