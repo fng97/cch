@@ -1,4 +1,6 @@
 use actix_web::web::{Data, ServiceConfig};
+use std::collections::HashMap;
+use std::sync::Mutex;
 
 use crate::challenges::day_01;
 use crate::challenges::day_04;
@@ -10,7 +12,12 @@ use crate::challenges::day_12;
 use crate::challenges::warmup;
 
 pub fn config(cfg: &mut ServiceConfig) {
+    let day_12_app_state = Data::new(day_12::AppState {
+        timestamps: Mutex::new(HashMap::new()),
+    });
+
     cfg.app_data(Data::new(reqwest::Client::new()))
+        .app_data(day_12_app_state)
         .service(warmup::root)
         .service(warmup::fake_error)
         .service(day_01::recallibrate_ids)
