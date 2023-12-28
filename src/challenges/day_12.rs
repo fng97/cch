@@ -3,6 +3,10 @@ use std::collections::HashMap;
 use std::sync::Mutex;
 use std::time::Instant;
 
+// TODO: This could do with better error handling
+// TODO: Cleaner way to handle state? Abstract it in a way that we could swap it
+// out with a database easily
+
 pub struct AppState {
     pub timestamps: Mutex<HashMap<String, Instant>>,
 }
